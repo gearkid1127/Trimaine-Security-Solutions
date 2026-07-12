@@ -1,0 +1,120 @@
+.section {
+  background: linear-gradient(
+    135deg,
+    var(--color-royal) 0%,
+    var(--color-navy) 100%
+  );
+  padding: var(--section-py) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 80% at 90% 50%, rgba(201, 161, 42, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+/* Left: text */
+.text {}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--color-gold-light);
+  font-size: 0.78125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  color: var(--color-white);
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.sub {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1rem;
+  line-height: 1.72;
+  margin-bottom: 36px;
+}
+
+/* Right: contact details card */
+.details {}
+
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  backdrop-filter: blur(8px);
+}
+
+.detailItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.detailIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: rgba(201, 161, 42, 0.14);
+  color: var(--color-gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.detailIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.detailLabel {
+  font-size: 0.78125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 4px;
+}
+
+.detailValue {
+  color: var(--color-white);
+  font-size: 1rem;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+a.detailValue:hover {
+  color: var(--color-gold-light);
+  text-decoration: underline;
+}

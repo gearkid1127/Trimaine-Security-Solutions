@@ -1,0 +1,121 @@
+.hero {
+  position: relative;
+  background: linear-gradient(
+    140deg,
+    var(--color-navy-deep) 0%,
+    var(--color-navy) 45%,
+    var(--color-royal) 100%
+  );
+  padding: var(--section-py) 0 80px;
+  overflow: hidden;
+}
+
+/* Subtle radial glows */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 15% 55%, rgba(37, 99, 184, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 85% 15%, rgba(201, 161, 42, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: center;
+  z-index: 1;
+}
+
+@media (min-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr auto;
+    gap: 80px;
+  }
+}
+
+/* Content */
+.content {
+  max-width: 580px;
+}
+
+@media (min-width: 900px) {
+  .content {
+    max-width: none;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(201, 161, 42, 0.12);
+  color: var(--color-gold-light);
+  border: 1px solid rgba(201, 161, 42, 0.28);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.78125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.heading {
+  font-size: clamp(2rem, 3.8vw, 3.25rem);
+  color: var(--color-white);
+  line-height: 1.15;
+  margin-bottom: 22px;
+  max-width: 540px;
+}
+
+.sub {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  line-height: 1.72;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Shield Visual */
+.visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.shieldSvg {
+  width: clamp(200px, 28vw, 280px);
+  height: auto;
+  filter: drop-shadow(0 16px 48px rgba(37, 99, 184, 0.5));
+  animation: shieldFloat 7s ease-in-out infinite;
+}
+
+@keyframes shieldFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+/* Wave divider */
+.divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  line-height: 0;
+}
+
+.divider svg {
+  width: 100%;
+  height: 60px;
+}
